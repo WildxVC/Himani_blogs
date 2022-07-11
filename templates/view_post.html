@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="static/css/post.css">
+{% endblock %}
+
+{% block title %}
+  {{title}}
+  {% endblock title %}
+
+
+
+{% block body %}
+<div class="post">
+    <div class="Post_container">
+
+        <h1 class="title">{{post.title}}</h1>
+        <div class="author">
+
+            <h3>
+                <span>By {{post.user.first_name}} {{post.user.last_name}} |</span>
+                <span> Published on {{post.timestamp|date:'d F Y'}} | </span>
+                <span> <i class="fa fa-eye"></i> {{post.views}}</span>
+            </h3>
+        </div>
+
+
+
+        <div class="socialMedia">
+
+            <div class="wrapper">
+                <div class="icon facebook">
+                    <div class="tooltip">Facebook</div>
+                    <a href="#">
+                        <span><i class="fa fa-facebook-f"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon twitter">
+                    <div class="tooltip">Twitter</div>
+                    <a href="#">
+                        <span><i class="fa fa-twitter"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon instagram">
+                    <div class="tooltip">Instagram</div>
+                    <a href="#">
+                        <span><i class="fa fa-instagram"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon gmail">
+                    <div class="tooltip">Gmail</div>
+                    <a href="#">
+                        <span><i class="fa fa-google"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon linkedin">
+                    <div class="tooltip">LinkedIn</div>
+                    <a href="#">
+                        <span><i class="fa fa-linkedin"></i></span>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <img src="{{ post.img.url}}" />
+
+        <p>{{post.desc|safe}}</p>
+    </div>
+</div>
+
+
+
+<div id="slider">
+    <h1 class="moreStories">More Stories</h1>
+
+    {% for post in carousalPosts %}
+
+    <div class="slides">
+        <div class="carouselCard">
+
+            <div class="img">
+                <a href="{% url 'viewPost' post.slug%}">
+                    <img src="{{post.img.url}}" alt="">
+                </a>
+            </div>
+            <div class="content">
+                <a href="{%url 'viewPost' post.slug%}">
+
+                    <h6> {{post.cat_id}} - {{post.timestamp|date:'d F Y'}}</h6>
+                    <h2>{{post.title}}</h2>
+                </a>
+                <h3>{{post.desc|striptags|truncatechars:250|safe}}</h3>
+
+                <h5> {{post.user.first_name}} {{post.user.last_name}} </h5>
+            </div>
+
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+<div id="dot">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<hr>
+{% include "footer.html" %}
+
+{% endblock %}
+
+{% block script %}
+<script src="static/js/post.js"></script>
+{% endblock %}

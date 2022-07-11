@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="../static/css/home.css">
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/footer.css">
+{% endblock style %}
+
+
+{% block title %}
+  {{title}}
+  {% endblock title %}
+
+  
+{% block body %}
+
+<div id="categoriesBlock">
+    <div class="categories">
+        <ul>
+            <li><a href="{% url 'categories' 'All' %}">All</a></li>
+
+            <li>
+                <a href="{% url 'categories' 'Food' %}">Food</a>
+            </li>
+            <li>
+                <a href="{% url 'categories' 'Travel' %}">Travel</a>
+            </li>
+            <li>
+                <a href="{% url 'categories' 'Lifestyle'%}">Lifestyle</a>
+            </li>
+            <li>
+                <a href="{% url 'categories' 'Fashion'%}">Fashion</a>
+            </li>
+            <li>
+                <a href="{% url 'categories' 'Sports'%}">Sports</a>
+            </li>
+            <li>
+                <a href="{% url 'categories' 'Tech'%}">Tech</a>
+            </li>
+
+            <li><a href="{% url 'categories' 'More'%}">More</a></li>
+        </ul>
+        <br>
+        <br>
+    </div>
+</div>
+
+<div class="posts">
+    {% for post in posts %}
+
+    <div class="card">
+
+        <div class="img">
+            <a href="{% url 'viewPost' post.slug%}">
+                <img src="{{post.img.url}}" alt="">
+            </a>
+        </div>
+        <a href="{%url 'viewPost' post.slug%}">
+
+            <h6> {{post.cat_id}} - {{post.timestamp|date:'d-m-Y'}}</h6>
+            <h2>{{post.title}}</h2>
+        </a>
+        <h3>{{post.desc|striptags|truncatechars:200|safe}}</h3>
+
+        <h5> {{post.user.first_name}} {{post.user.last_name}}</h5>
+
+    </div>
+    {% endfor %}
+
+
+</div>
+
+<!--Pagination-->
+
+<div class="pagination">
+    {% if posts.has_previous %}
+    <span class="page-item">
+        <a class="page-link" href="?page={{ posts.previous_page_number }}">&lt;</a>
+    </span>
+    {% else %}
+    <span class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="True">&lt;</a>
+    </span>
+    {% endif %}
+
+    {% if posts.number|add:'-4' > 1 %}
+    <span class="page-item"><a class="page-link" href="?page={{ posts.number|add:'-5' }}">&hellip;</a></span>
+    {% endif %}
+
+    {% for i in posts.paginator.page_range %}
+    {% if posts.number == i %}
+    <span class="page-item active" aria-current="page">
+        <span class="page-link">
+            {{ i }}
+            <span class="sr-only">(current)</span>
+        </span>
+    </span>
+    {% elif i > posts.number|add:'-5' and i < posts.number|add:'5' %} <span class="page-item"><a class="page-link"
+            href="?page={{ i }}">{{ i }}</a></span>
+        {% endif %}
+        {% endfor %}
+
+        {% if posts.paginator.num_pages > posts.number|add:'4' %}
+        <span class="page-item"><a class="page-link" href="?page={{ posts.number|add:'5' }}">&hellip;</a></span>
+        {% endif %}
+
+        {% if posts.has_next %}
+        <span class="page-item">
+            <a class="page-link" href="?page={{ posts.next_page_number }}">&gt;</a>
+        </span>
+        {% else %}
+        <span class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">&gt;</a>
+        </span>
+        {% endif %}
+
+</div>
+
+
+
+<hr>
+{% include "footer.html" %}
+
+{% endblock %}

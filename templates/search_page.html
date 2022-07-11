@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block style %}
+
+<link rel="stylesheet" href="static/css/search.css">
+
+{% endblock %}
+
+{% block title %}
+  {{title}}
+  {% endblock title %}
+
+
+{% block body %}
+
+
+<div class="noResult">
+
+  <h1>
+    Search Results for "{{query}}" :
+  </h1>
+  <hr>
+  <br>
+  {% if allpost|length < 1 %} <h4>No search results</h4>
+    <h5>Your search -<strong> {{query}} </strong>- did not match any documents.</h5>
+
+    <h5>Suggestions:</h5>
+    <ul>
+      <li>Make sure that all words are spelled correctly.</li>
+      <li>Try different keywords.</li>
+      <li>Try more general keywords.</li>
+    </ul>
+    {% endif %}
+</div>
+
+<div class="searchBlock">
+
+  {% for post in allpost %}
+  <div class="container_search">
+    <img src="{{post.img.url}}" alt="">
+    <article class="article">
+      <a role="button" href="{% url 'viewPost' post.slug %}">
+        <h4>{{post.cat_id}} - {{post.timestamp}}</h4>
+        <h2>{{post.title}}</h2>
+      </a>
+      <p>{% autoescape off %}{{post.desc|truncatechars:250|safe}}{% endautoescape %}</p>
+      
+      <a role="button" id="contReading" href="{% url 'viewPost' post.slug %}">Continue reading</a>
+
+      <h5><a href="#">{{post.user}}</a></h5>
+    </article>
+  </div>
+  {% endfor %}
+
+</div>
+
+<hr>
+{% include "footer.html" %}
+
+{% endblock %}

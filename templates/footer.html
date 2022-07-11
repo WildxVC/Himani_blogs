@@ -1,0 +1,81 @@
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="static/css/footer.css">
+
+{% endblock %}
+
+{% block body %}
+<div id="footer">
+
+    <div id="contact">
+        <h4>If you want to share your stories and creative ideas with the world, write an awesome blog (obviously 100% unique) and shoot us at:</h4>
+
+        <div class="socialMedia">
+
+            <div class="wrapper">
+                <div class="icon facebook">
+                    <div class="tooltip">Facebook</div>
+                    <a href="#">
+                        <span><i class="fa fa-facebook-f"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon twitter">
+                    <div class="tooltip">Twitter</div>
+                    <a href="#">
+                        <span><i class="fa fa-twitter"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon instagram">
+                    <div class="tooltip">Instagram</div>
+                    <a href="#">
+                        <span><i class="fa fa-instagram"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon gmail">
+                    <div class="tooltip">Gmail</div>
+                    <a href="#">
+                        <span><i class="fa fa-google"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon linkedin">
+                    <div class="tooltip">LinkedIn</div>
+                    <a href="#">
+                        <span><i class="fa fa-linkedin"></i></span>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            <a href="{% url 'about'%}"> About Us</a>
+        </li>
+        <li>
+            <a href="{% url 'privacy'%}"> Privacy Policy</a>
+        </li>
+        <li>
+            <a href="{% url 'terms'%}"> Terms of Use</a>
+        </li>
+
+    </ul>
+
+    <div id="creators">
+        <h3>
+            Made with love &#10084; by : Vinayak Chhatrashali & Harshvardhan Singh Sisodia
+        </h3>
+    </div>
+
+</div>
+
+<div id="copyright">
+    <h5>Copyright &#9400 2022 <a href="{% url 'home' %}">Blogza</a> | All rights reserved </h5>
+</div>
+
+{% endblock %}

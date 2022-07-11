@@ -1,0 +1,177 @@
+.noResult{
+    margin-left: 50px;
+    padding: 10px;
+    width: 80vw;
+
+}
+@media (max-width:525px) {
+    .noResult{
+     margin-left: 5px;
+     width: 90vw;
+    }
+  
+}
+@media (max-width:770px) {
+    .noResult{
+     margin-left: 15px;
+     width: 90vw;
+    }
+  
+}
+
+.noResult h1{
+    font-size: 32.5px;
+    margin-bottom: 15px;
+}
+@media (max-width:770px) {
+    .noResult h1{
+        font-size: 25px;
+        margin-bottom: 12px; 
+    }
+  
+}
+@media (max-width:525px) {
+    .noResult h1{
+        font-size: 18px;
+        margin-bottom: 10px; 
+    }
+  
+}
+
+.noResult h4{
+    font-size: 27.5px;
+    margin-bottom: 5px;
+
+}
+@media (max-width:770px) {
+    .noResult h4{
+        font-size: 20px;
+    }
+  
+}
+@media (max-width:525px) {
+    .noResult h4{
+        font-size: 15px; 
+    }
+  
+}
+
+.noResult h5{
+    font-size: 22.5px;
+    margin-bottom: 2.5px;
+
+}
+@media (max-width:770px) {
+    .noResult h5{
+        font-size: 15px;
+    }
+  
+}
+@media (max-width:525px) {
+    .noResult h5{
+        font-size: 12px; 
+    }
+  
+}
+
+
+.noResult ul{
+    font-size: 20px;
+}
+@media (max-width:770px) {
+    .noResult ul{
+        font-size: 16px; 
+    }
+  
+}
+@media (max-width:525px) {
+    .noResult ul{
+        font-size: 14px; 
+    }
+  
+}
+
+.searchBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_search{
+    display: flex;
+    align-items: center;
+    width: 75vw;
+    padding: 5px;
+    margin: 10px;
+}
+@media (max-width:770px) {
+    .container_search{
+        width: 95vw; 
+    }
+  
+}
+@media (max-width:525px) {
+    .container_search{
+        flex-direction: column; 
+    }
+  
+}
+
+.container_search img{
+    height: 200px !important;
+    width: 200px !important;
+    object-fit: cover;
+    border-radius: 15%;
+}
+@media (max-width:525px) {
+    .container_search img{
+        width: 92vw !important;
+        height: 250px !important;
+        border-radius: 8%;
+
+
+    }
+  
+}
+
+.article{
+    padding: 5px;
+    margin-left: 15px;
+}
+@media (max-width:525px) {
+    .article{
+     margin-left: 5px;
+
+    }
+  
+}
+
+.article h4{
+    color: grey;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+@media (max-width:525px) {
+    .article h4{
+     margin-bottom: 5px;
+     font-size: 12px;
+
+    }
+  
+}
+
+.article a{
+    text-decoration: none;
+    color: black;
+}
+
+#contReading{
+    color: rgb(10, 10, 214);
+    font-weight: bold;
+}
+
+.article h5{
+    font-size: 15px;
+    margin-top: 8px;
+}

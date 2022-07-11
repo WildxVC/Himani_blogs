@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block style %}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock %}
+
+
+{% block title %}
+  {{title}}
+  {% endblock title %}
+
+  
+{% block body %}
+<div class="aboutBlock">
+
+    <div class="aboutContent">
+        <h1>About Us</h1>
+        <h3>
+            <p>Welcome to <b>Blogza!</b> If you love to read, you have come to the right place. This website is a one-stop destination that 'brews' up the latest stories, trending fashion, glamorous lifestyle, travel tips, product reviews, and much more.
+            </p>
+            <p>We have skits and tidbits for everyone who visits our website. If you want to catch up on the latest gossip about your favorite celebrities' lives, you have come to the right place.
+            </p>
+            <p>We also post informative and anecdotal stories for 'brains' to work out. We love to cover the tips, dos, and don'ts in fashion, technology, lifestyle, and much more.
+            </p>
+            <p> The brewed stories will bring smiles and laughter. However, a few stories might take you on an emotional roller coaster ride too. But we know you won't blame us for that. We also guarantee that once you start exploring, you won't want to stop.
+            </p>
+
+            <p>We have good news for writers a.k.a. creative brains. We accept personal stories and blogs. If you ask why the answer is simple. We want to share your stories and creative ideas with the world.
+            </p>
+
+            <p> All you need to do is brew up your brain a bit, write an awesome blog (obviously 100% unique) and shoot us at:
+            </p>
+        </h3>
+
+
+        <div class="socialMedia">
+
+            <div class="wrapper">
+                <div class="icon facebook">
+                    <div class="tooltip">Facebook</div>
+                    <a href="#">
+                        <span><i class="fa fa-facebook-f"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon twitter">
+                    <div class="tooltip">Twitter</div>
+                    <a href="#">
+                        <span><i class="fa fa-twitter"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon instagram">
+                    <div class="tooltip">Instagram</div>
+                    <a href="#">
+                        <span><i class="fa fa-instagram"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon gmail">
+                    <div class="tooltip">Gmail</div>
+                    <a href="#">
+                        <span><i class="fa fa-google"></i></span>
+                    </a>
+                </div>
+
+                <div class="icon linkedin">
+                    <div class="tooltip">LinkedIn</div>
+                    <a href="#">
+                        <span><i class="fa fa-linkedin"></i></span>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+{% include "footer.html" %}
+
+{% endblock %}

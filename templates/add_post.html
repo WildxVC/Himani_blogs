@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="static/TinyMce.js"></script>
+{% endblock %}
+
+{% block title %}
+  {{title}}
+  {% endblock title %}
+
+
+{% block body %}
+{% comment %} {{if user.is_authenticated}} {% endcomment %}
+
+
+ <div class="addPost">
+    <div class="form-style-2">
+        <div class="form-style-2-heading">Add a New Post</div>
+
+        <form action="{% url 'addPost' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="category"><span>Category <span class="required">*</span></span>
+                {{form.cat_id}}
+            </label>
+
+            <label for="title"><span>Title <span class="required">*</span></span>
+                {{form.title}}
+            </label>
+
+            <label for="image"><span>Select Image <span class="required">*</span></span>
+                {{form.img}}
+            </label>
+
+            <label for="content"><span>Content <span class="required">*</span></span>
+                {{form.desc}}
+            </label>
+
+
+            <label><span> </span><input type="submit" value="Add Post" /></label>
+        </form>
+    </div>
+</div>
+
+<hr>
+{% include "footer.html" %}
+
+{% endblock %}
+
+{% block script%}
+<script>
+
+    document.getElementById('id_desc').removeAttribute('required');
+    document.getElementById('id_img').addAttribute('requiredaccept="image/*"');
+</script>
+
+<link rel="stylesheet" href="static/css/addPost.css">
+
+
+{% endblock %}

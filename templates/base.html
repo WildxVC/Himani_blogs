@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/base.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="static/css/footer.css">
+  <title>
+    {% block title %}
+    {% endblock title %}
+  </title>
+
+  {% block head %}
+  {% endblock head %}
+
+  {% block style %}
+
+  {% endblock style %}
+
+
+</head>
+
+<body>
+  <div id="header">
+    <div class="logo">
+      <a href="{% url 'home' %}">Blogza</a>
+    </div>
+  </div>
+  <nav>
+    <div class="navbar">
+      <li id="icon"><a href="javascript:void(0);" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a></li>
+      <ul class="navbar" id="myTopnav">
+        <li><a href="{% url 'home' %}">Home</a> </li>
+        <li><a href="{% url 'categories' 'Fashion' %}">Fashion</a></li>
+        <li><a href="{% url 'categories' 'Lifestyle' %}">Lifestyle</a></li>
+        <li><a href="{% url 'categories' 'Entertainment' %}">Entertainment</a></li>
+        <li><a href="{% url 'categories' 'More' %}">More</a></li>
+      </ul>
+
+
+    </div>
+
+    <div id="addPostButton">
+      {% if user.is_authenticated %}
+      <button><a href="{% url 'addPost' %}">ADD A POST</a></button>
+      Hi {{ user.username }}!
+      <h4><a href="{% url 'logout' %}">Log Out</a></h4>
+      {% endif %}
+    </div>
+
+
+
+    <div class="search">
+      <form class="search-container" action="{% url 'searchResult' %}" method="GET">
+        <input id="search-box" type="text" class="search-box" name="query" required placeholder="Search" />
+        <label for="search-box"><span class="fa fa-search search-icon"></span></label>
+        <input type="submit" id="search-submit" />
+      </form>
+    </div>
+  </nav>
+  <!-- </div> -->
+
+  {% block body %}
+
+
+  {% endblock %}
+
+  <script>
+    document.addEventListener("touchstart", function () { }, true);
+
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+
+  </script>
+</body>
+{% block script %}
+
+
+{% endblock %}
+
+</html>
